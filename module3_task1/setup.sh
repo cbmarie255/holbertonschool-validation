@@ -1,14 +1,15 @@
 #!/bin/bash
-sudo apt-get update -y
-sudo apt-get install -y shellcheck
-sudo apt-get install -y hugo make golang-go git curl
-curl -L https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_0.84.0_Linux-64bit.deb -o hugo.deb
-sudo apt install ./hugo.deb
-sudo apt-get remove -y golang-go
-sudo apt-get remove -y --auto-remove golang-go
-rm -rvf /usr/local/go
-wget https://dl.google.com/go/go1.19.5.linux-amd64.tar.gz
-rm -rf ./go && tar -C . -xzf go1.19.5.linux-amd64.tar.gz
-currentDirectory=$(pwd)
-export PATH=$currentDirectory/go/bin:$PATH
-make build
+sudo apt update
+sudo apt upgrade
+sudo apt install -y wget make shellcheck
+
+# Download Go
+wget https://go.dev/dl/go1.20.1.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.20.1.linux-amd64.tar.gz
+rm ./go1.20.1.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+
+# Download the Hugo executable
+wget https://github.com/gohugoio/hugo/releases/download/v0.110.0/hugo_0.110.0_Linux-64bit.tar.gz
+tar -C /usr/local/bin -xzf hugo_0.110.0_Linux-64bit.tar.gz
+rm ./hugo_0.110.0_Linux-64bit.tar.gz
