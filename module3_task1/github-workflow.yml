@@ -1,18 +1,37 @@
----
 name: module3_task1
 on:
   push:
-    branches: main
+    branches:
+      - main
   schedule:
     - cron: "0 0 * * *"
-
 jobs:
-  module3_task0:
+  Build:
     runs-on: ubuntu-20.04
     steps:
-      - name: Checkout repo code
+      - name: Checkout repository code
         uses: actions/checkout@v3
-      - name: Change to directory and run make help.
+      - name: Setup
         run: |
           cd module3_task1
-          make help
+          ./setup.sh
+      - name: Lint
+        run: |
+          cd module3_task1
+          make lint
+      - name: Build
+        run: |
+          cd module3_task1
+          make build
+      - name: Unit Tests
+        run: |
+          cd module3_task1
+          make unit-tests
+      - name: Integration Tests
+        run: |
+          cd module3_task1
+          make integration-tests
+      - name: Validate
+        run: |
+          cd module3_task1
+          make validate
