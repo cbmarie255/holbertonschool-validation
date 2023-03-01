@@ -1,6 +1,6 @@
 .SILENT:
 help: ## Must be implemented and print a list of all the goals with a sentence.
-	sed -n '2p;5p;8p;11p;15p;18p;24p;27p;30p;33p;35p;37p' Makefile | grep "##" | tr -d "##"
+	sed -n '2p;5p;8p;11p;15p;18p;24p;27p;30p;33p;35p;37p;43p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
 	shellcheck setup.sh
@@ -39,3 +39,6 @@ validate: ## Must always succeed by default and should print the result on the s
 post: ## Create a new blog post whose filename and title come from the environment variables
 	hugo new posts/$(POST_NAME).md
 	sed -i ‘2s/title: .*/title: “$(POST_TITLE)“/’ content/posts/$(POST_NAME).md >/dev/null 2>&1
+
+package: build ## Produces a file awesome-website.zip, containing the binary awesome-api and the directory dist/ directory
+	zip -r awesome-website.zip dist awesome-api
