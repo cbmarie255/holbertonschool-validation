@@ -68,3 +68,5 @@ jobs:
           files: |
             module3_task3/awesome-website.zip
             module3_task3/DEPLOY.md
+      - name: Release Drafter
+        uses: release-drafter/release-drafter@v5
