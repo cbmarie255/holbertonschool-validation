@@ -1,4 +1,4 @@
-name: module3_task1
+name: module3_task2
 on:
   push:
     branches:
@@ -13,25 +13,29 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup
         run: |
-          cd module3_task1
+          cd module3_task2
           ./setup.sh
       - name: Lint
         run: |
-          cd module3_task1
+          cd module3_task2
           make lint
       - name: Build
         run: |
-          cd module3_task1
+          cd module3_task2
           make build
       - name: Unit Tests
         run: |
-          cd module3_task1
+          cd module3_task2
           make unit-tests
       - name: Integration Tests
         run: |
-          cd module3_task1
+          cd module3_task2
           make integration-tests
       - name: Validate
         run: |
-          cd module3_task1
+          cd module3_task2
           make validate
+- name: Package
+        run: |
+          cd module3_task2
+          make package
