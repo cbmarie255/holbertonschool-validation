@@ -20,7 +20,7 @@ jobs:
       - name: Checkout repository code
         uses: actions/checkout@v3
       - name: GitHub Actions Image Setup
-        run: sudo apt install -y make
+        run: sudo apt install -y make shellcheck
       - name: Building Docker Image
         run: |
           cd module4_task1
