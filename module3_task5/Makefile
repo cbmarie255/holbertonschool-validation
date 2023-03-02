@@ -17,10 +17,10 @@ stop: ## Stops the application.
 	pgrep awesome-api | xargs kill
 
 clean: ## Delete the binary awesome-api and the log file awesome-api.log.
-	-rm -r awesome-api
-	-rm coverage-integrations.out
-	-rm coverage-units.out
-	-pgrep awesome-api | xargs kill
+	rm -rf ./dist
+	rm -f awesome-api
+	rm -f coverage-integrations.out
+	rm -f coverage-units.out
 
 test: ## Tests application's server to ensure that it behaves as expected.
 	go test -v -short -coverprofile=coverage-units.out
