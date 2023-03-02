@@ -1,5 +1,5 @@
 baseURL = 'http://example.org'
 languageCode = 'en-us'
-title = 'Tests'
+title = 'Welcome to Awesome Inc.!'
 theme = 'ananke'
 publishDir = 'dist'
