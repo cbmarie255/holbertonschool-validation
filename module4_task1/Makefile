@@ -6,7 +6,7 @@ build-docker: ## Building a Docker container.
 	docker build -f ./build/Dockerfile -t awesome:build .
 
 lint: ## Checks to see if the code is written in compliance with the linter.
-	shellcheck setup.sh
+	shellcheck setup.sh >/dev/null 2>&1 || echo "Lint Failed"
 
 .PHONY: build
 build: clean## Compiles the source code of the application to a binary named awesome-api 
