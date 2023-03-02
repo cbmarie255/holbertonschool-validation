@@ -5,10 +5,3 @@ COPY . .
 RUN /app/setup.sh
 
 ENV PATH=$PATH:/usr/local/go/bin
-
-CMD make lint; \
-    make build; \
-    make unit-tests; \
-    make integration-tests; \
-    make validate; \
-    make package
