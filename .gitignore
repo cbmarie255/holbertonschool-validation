@@ -4,4 +4,5 @@
 # Local Netlify folder
 .netlify
 */aws
-*/module5_accessKeys.csv
+*/*.csv
+*/*.zip
