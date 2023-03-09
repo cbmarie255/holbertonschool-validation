@@ -23,7 +23,7 @@ func main() {
 
 func setupRouter() *mux.Router {
   // Create a new empty HTTP Router
-  r := mux.NewRouter()l
+  r := mux.NewRouter()
   // when an HTTP GET request is received on the path /hello
   r.HandleFunc("/hello", HelloHandler).Methods("GET")
 
