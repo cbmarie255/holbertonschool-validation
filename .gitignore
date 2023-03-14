@@ -6,4 +6,5 @@
 */aws
 */*.csv
 */*.zip
-*/.tar
+*/*.tar
+*/awesome-tar
