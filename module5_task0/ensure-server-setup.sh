@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 30 
+
 ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/awesome-key.pem ubuntu@"$1" "
     sudo apt-get update
     sudo apt-get upgrade -y

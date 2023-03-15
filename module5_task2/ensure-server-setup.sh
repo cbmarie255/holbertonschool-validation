@@ -8,6 +8,8 @@ aws ec2 wait instance-running --instance-ids $ec2InstanceId
 # Add this server as a known host
 ssh-keyscan -H "$1" >> ~/.ssh/known_hosts
 
+sleep 30
+
 ssh ubuntu@"$1" "
     sudo apt-get update
     sudo apt-get upgrade -y
