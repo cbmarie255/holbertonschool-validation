@@ -97,7 +97,7 @@ create-servers:
 	./ensure-server-created.sh jenkins
 	./ensure-server-created.sh production
 
-ansible-playbook:
+ansible-server-setup:
 	ansible-playbook --inventory=./ansible/inventory.yml --tags=server-setup ./ansible/playbook.yml
 
 ansible-deploy-jenkins:
