@@ -1,6 +1,6 @@
 - hosts: production jenkins
   tasks:
-    - name: Updates, apt cache, upgrade, and install packages
+    - name: Updates apt cache, upgrade, and install packages
     shell: |
       sudo apt-get update
       sudo apt-get upgrade -y
