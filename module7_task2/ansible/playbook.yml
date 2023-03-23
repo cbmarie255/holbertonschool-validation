@@ -1,0 +1,5 @@
+- hosts: production jenkins
+  tags: server-setup
+  roles:
+    - docker
+- hosts: 
