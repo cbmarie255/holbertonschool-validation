@@ -112,8 +112,8 @@ puppet-agent:
 terraform: # Create the AWS infrastructure
 	terraform apply
 
-make terraform-ssh-production: # SSH into the production server
+terraform-ssh-production: # SSH into the production server
 	ssh -i ~/.ssh/awesome-key.pem ubuntu@$(shell terraform output -raw production)
 
-make terraform-ssh-jenkins: # SSH into the Jenkins server
+terraform-ssh-jenkins: # SSH into the Jenkins server
 	ssh -i ~/.ssh/awesome-key.pem ubuntu@$(shell terraform output -raw jenkins)

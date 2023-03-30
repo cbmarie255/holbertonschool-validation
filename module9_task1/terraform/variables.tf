@@ -1,5 +1,3 @@
-
-
 variable "aws_region" {
   description = "AWS region(N.Virginia)"
   default     = "us-east-1"

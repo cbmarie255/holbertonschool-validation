@@ -9,9 +9,9 @@ dockerImageTag=$(cat awesome_image_tag_name.txt)
 docker context create production --docker "host=ssh://ubuntu@$new_ec2_instance_public_ip"
 docker context use production
 
-docker pull tsuroo/awesome-static:"$dockerImageTag"
-docker pull tsuroo/awesome-api:"$dockerImageTag"
-docker pull tsuroo/reverse-proxy:"$dockerImageTag"
+docker pull cbmarie255/awesome-static:"$dockerImageTag"
+docker pull cbmarie255/awesome-api:"$dockerImageTag"
+docker pull cbmarie255/reverse-proxy:"$dockerImageTag"
 docker compose up --detach --scale awesome-api=2 reverse-proxy
 
 docker context use default

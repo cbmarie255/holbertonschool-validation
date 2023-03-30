@@ -31,16 +31,6 @@ resource "aws_security_group" "awesome-sg" {
 	}
 }
 
-resource "aws_instance" "awesome-production-instance" {
-	ami = "ami-09cd747c78a9add63"
-	instance_type = "t2.micro"
-	vpc_security_group_ids = [aws_security_group.awesome-sg.id]
-	key_name = aws_key_pair.awesome-key.key_name
-	tags = {
-		Name = "production"
-	}
-}
-
 resource "aws_instance" "awesome-instance" {
 	for_each = var.instance_tags
 	ami = "ami-09cd747c78a9add63"
