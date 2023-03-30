@@ -31,16 +31,6 @@ resource "aws_security_group" "awesome-sg" {
 	}
 }
 
-resource "aws_instance" "awesome-production-instance" {
-	ami = "ami-09cd747c78a9add63"
-	instance_type = "t2.micro"
-	vpc_security_group_ids = [aws_security_group.awesome-sg.id]
-	key_name = aws_key_pair.awesome-key.key_name
-	tags = {
-		Name = "production"
-	}
-}
-
 resource "aws_instance" "awesome-instance" {
 	for_each = var.instance_tags
 	ami = "ami-09cd747c78a9add63"
@@ -51,4 +41,20 @@ resource "aws_instance" "awesome-instance" {
 		Name = each.key
 		Description = each.value
 	}
+user_data = data.cloudinit_config.server_config.rendered
+	connection {
+		type        = "ssh"
+		user        = "ubuntu"
+		private_key = file("~/.ssh/awesome-key.pem")
+		host        = self.public_ip
+	}
+}
+
+data "cloudinit_config" "server_config" {
+  gzip          = false
+  base64_encode = true
+  part {
+	content_type = "text/cloud-config"
+	content      = file("./userdata/default.yml")
+  }
 }
