@@ -2,9 +2,11 @@
 package_update: true
 package_upgrade: true
 packages:
-  - docker.io
+  - java
   - make
+  - git
 runcmd:
   - sudo systemctl start docker
   - sudo systemctl enable docker
   - sudo usermod -aG docker default
+  - terraform apply
